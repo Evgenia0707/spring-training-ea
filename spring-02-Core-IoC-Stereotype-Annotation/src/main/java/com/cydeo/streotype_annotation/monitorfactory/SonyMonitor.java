@@ -1,5 +1,10 @@
 package com.cydeo.streotype_annotation.monitorfactory;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class SonyMonitor extends Monitor{
 
     public SonyMonitor() {
