@@ -8,16 +8,18 @@ import com.cydeo.bean_annotation.motherboardfactory.AsusMotherboard;
 import com.cydeo.bean_annotation.motherboardfactory.Motherboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ComputerConfig {
 
-    @Bean
+    @Bean(name = "sony")
     public Monitor monitorSony() {//can create default constr and return empty obj
         return new SonyMonitor("25 inch Beast", "Acer", 25); // Monitor abc = new SonyMonitor (polymorphism)
     }
 
     @Bean
+    @Primary//
     public Case caseDell() {
         return new DellCase("220B", "Dell", "240");
     }
