@@ -15,9 +15,12 @@ public class ComputerConfig {
 
     @Bean(name = "sony")
     public Monitor monitorSony() {//can create default constr and return empty obj
-        return new SonyMonitor("25 inch Beast", "Acer", 25); // Monitor abc = new SonyMonitor (polymorphism)
+        return new SonyMonitor("25 inch Beast", "Sony", 25); // Monitor abc = new SonyMonitor (polymorphism)
     }
-
+    @Bean(name = "sony")
+    public Monitor monitorSony2() {//create obj
+        return new SonyMonitor("40 inch Beast", "Sony", 25);
+    }
     @Bean
     @Primary//
     public Case caseDell() {
