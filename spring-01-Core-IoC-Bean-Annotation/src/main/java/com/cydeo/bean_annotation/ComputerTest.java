@@ -45,6 +45,7 @@ public class ComputerTest {
         Monitor theMonitor3 = container.getBean("sony", Monitor.class);// Custom Bean Name == name = "sony"
         Monitor theMonitor4 = container.getBean(Monitor.class);// @Primary  (will give Acer)
 
+        PC myPc3 = new PC(theCase, theMonitor4, theMotherboard);
 
     }
 
