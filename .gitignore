@@ -1,0 +1,9 @@
+# Project exclude paths
+/spring-01-Core-IoC-Bean-Annotation/target/
+/target/
+/out/
+/.idea/
+*.iml
+/.mvn/
+mvnw.cmd
+mvnw
