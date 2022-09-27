@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<!--    from messages.property  th:text="#{index.page.title}-->
+    <title th:text="#{index.page.title}"></title>
+
+<!--create access (href + link )-->
+
+    <link th:href="@{/css/bootstrap-4.1.3-dist/css/bootstrap.css}" rel="stylesheet">
+
+    <link th:href="@{css/custom.css}" rel="stylesheet">
+</head>
+<body>
+
+<!--Boostrap Integration-->
+<h1 class="display-1 text-danger">Welcome to Cydeo Student's Register Form</h1>
+
+<!--booster Custom CSS-->
+<h2 class="cydeo">My Custom CSS</h2>
+
+<!--Image Integration-->
+<img th:src="@{/images/welcome-38249.png}">
+
+
+<!--Display Value of model-->
+<h2 th:text="${students.get(0).firstName}"></h2>
+<h2 th:text="${students.get(0).lastName}"></h2>
+
+<!--Concatenation--- 'Hello' - fix (Hello some name)   -->
+<h2 th:text="${ 'Hello' + students.get(0).firstName}"></h2>
+<h2 th:text="${ students.get(0).firstName + ' ' + students.get(0).lastName}"></h2>
+
+
+<!--Link--clinked link - Absolute URL by using expression "@{}"     <a-create link  th:href navigater  ="@{https://cydeo.com}-->
+<h2>
+    <a th:href="@{https://cydeo.com}">Cydeo Page</a>
+</h2>
+
+
+<!--Link --- Relative URL - go controller-end point-->
+<h2>
+    <a th:href="@{/student/welcome}">Welcome</a>
+</h2>
+
+<!--Adding Parameters in Link-->
+
+<!--they are all directing to the same controller method,
+but one of them doesn't have any query parameter,
+other 2 have some query parameters-->
+
+<h2>
+    <a th:href="@{/student/welcome(id=3)}">Link1</a>
+</h2>
+<!--name=${student.get(0).firstName} - get student name-->
+<h2>
+    <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link2</a>
+</h2>
+<!--Iteration   th:each ==(one by one)for each loop   =" name==get 1 name from stud : ${student}repres stud -->
+<!--for(String name: student){}-->
+<!--th:text="${name} " print display value == name-->
+
+<h2>Printing Student's First Name</h2>
+
+    <!--    <li th:each=" name : ${student} " th:text=" ${student.firstName}" print inside==student firstname ></li>  >li> will be lop after each-->
+    <!--    for(Student student : students){go to Collection and give 1 of student == from students}-->
+    <!--    sout(student name);-->
+<ul>
+    <li th:each=" student : ${students} " th:text="${student.firstName}"></li>
+</ul>
+
+
+<h2>Printing Student's Last Name</h2>
+
+<!--<ul>-->
+<!--    <li>Student1</li>-->
+<!--    <li>Student2</li>-->
+<!--    <li>Student3</li>-->
+<!--    ...-->
+<!--    <li>Student3000</li>-->
+<!--    &lt;!&ndash;    use loop for repeated and print&ndash;&gt;-->
+<!--</ul>-->
+
+<ul>
+    <li th:each=" student : ${students} " th:text="${student.firstName}"></li>
+</ul>
+
+<h2>Printing Student's in table</h2>
+
+
+<table>
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>State</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students} ">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.state}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!--Conditional logic-->
+
+<div th:text="${students.get(0).age > 25 ? 'Eligible' : 'Not Eligible'}"></div>
+
+<div>
+    <span th:if="${students.get(0).getState()=='Arizona'}">Arizona</span>
+    <span th:unless="${students.get(0).getState =='Arizona'}">No Arizona</span>
+</div>
+
+<!--th:if will show you that html element if the condition you put in there matches-->
+<!--th:unless won't show you that html element if the condition you put in there matches-->
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car</title>
+</head>
+<body>
+
+<div align="center">
+
+    <form th:action="@{/car/confirm}" method="post" th:object="${car}">
+
+
+        <label>Car make</label>
+        <select th:field="*{make}">
+            <option th:each="theCar : ${infoCar}" th:value="${theCar}" th:text="${theCar}"></option>
+        </select><br>
+
+
+        <label>Car year</label>
+        <input type="text" th:field="*{make}"><br>
+
+
+        <button type="submit">Confirm</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

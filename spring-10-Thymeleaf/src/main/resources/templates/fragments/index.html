@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Fragments-->
+<!--reusable codes   th:fragment=  can call by ref name "main-menu" or footer-menu -->
+
+<!--call <div th:replace="/fragments/index :: main-menu"> </div>-->
+
+<div th:fragment="main-menu">
+    <a href="https://cydeo.com">Cydeo </a>
+</div>
+
+<p th:fragment=footer-menu>
+    <a href="privacy">Privacy</a>
+    <a href="term and conditions">Terms</a>
+</p>
+
+
+</body>
+</html>
