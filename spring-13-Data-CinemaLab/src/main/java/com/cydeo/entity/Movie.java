@@ -19,7 +19,7 @@ public class Movie extends BaseEntity{
 
     private String name;
 
-    @Column(columnDefinition = "DATA")
+    @Column(columnDefinition = "DATE")
     private LocalDate releaseDate;
 
     private Integer duration;
