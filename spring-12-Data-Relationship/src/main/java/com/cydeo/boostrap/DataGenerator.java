@@ -66,24 +66,17 @@ public class DataGenerator implements CommandLineRunner {
         cartRepository.save(cart2);
 
 
-
+//1 create amazon - than payments
         merchantRepository.save(merchant1);
 
-
+//for save --go to Payment add-- @OneToOne(cascade = CascadeType.ALL)
         paymentRepository.save(payment1);
         paymentRepository.save(payment2);
 
 
-
+//                                                                 join(behind sql query)
         System.out.println(paymentRepository.findById(2L).get().getPaymentDetail().getCommissionAmount());//5000
 
         paymentRepository.delete(payment1);
-
-
-
-
-
-
     }
-
 }
